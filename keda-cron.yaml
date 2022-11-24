@@ -1,0 +1,15 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: scaledobject
+spec:  
+  scaleTargetRef:
+    name: hello-world
+  minReplicaCount: 1
+  triggers:
+  - type: cron
+    metadata:
+      timezone: Asia/Kolkata
+      start: 1 * * * *
+      end: 2 * * * *
+      desiredReplicas: "5"
